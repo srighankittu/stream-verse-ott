@@ -11,7 +11,6 @@ const secret = config.JWT_SECRET;
 
 router.post("/signup", async (req, res) => {
   const { email, password, fullname } = req.body;
-  console.log(email);
   try {
     const isExist = await User.findOne({ email });
     if (isExist) {
