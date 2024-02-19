@@ -9,7 +9,37 @@ function Login() {
   const email = useRef();
   const password = useRef();
   const fullName = useRef();
-  function submitForm() {
+  // async function SignUp(fullname, email, password) {
+  //   const auth = await fetch("http://localhost:3000/user/signin", {
+  //     method: "post",
+  //     headers: {
+  //       "Content-Type": "application/json", // This line is crucial
+  //     },
+  //     body: JSON.stringify({
+  //       fullName: fullname,
+  //       email: email,
+  //       password: password,
+  //     }),
+  //   });
+  //   const token = await auth.json();
+  //   return token;
+  // }
+
+  async function SignIn(email, password) {
+    const auth = await fetch("http://localhost:3000/user/signin", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    });
+    const token = await auth.json();
+    return token;
+  }
+  async function submitForm() {
     const curentName = isSignIn ? "" : fullName.current.value;
     const currentEmail = email.current.value;
     const currentPassword = password.current.value;
@@ -20,6 +50,16 @@ function Login() {
       isSignIn
     );
     setErrorMessage(message);
+    if (message) return;
+    if (isSignIn) {
+      const token = await SignIn(currentEmail, currentPassword);
+      console.log(token);
+    }
+    // else if (!isSignIn) {
+    // const signup = await SignUp(curentName, currentEmail, currentPassword);
+    // console.log(signup);
+    // setIsSignIn(true);
+    // }
   }
 
   return (
