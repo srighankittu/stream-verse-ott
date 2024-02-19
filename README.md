@@ -6,7 +6,7 @@ In the evolving landscape of digital entertainment, the demand for diverse and a
 
 StreamVerse is our ambitious project that leverages the power of the MERN stack to deliver a seamless, user-friendly streaming service. This platform stands out by offering personalized content recommendations, high-quality streaming, and an engaging user interface. Our journey began with the vision to create an inclusive entertainment ecosystem that caters to varied tastes and preferences.
 
-![Thumbnail](https://github.com/srighankittu/stream-verse-ott/blob/main/public/assets/banner%20.webp)
+![Thumbnail](https://github.com/srighankittu/stream-verse-ott/blob/main/public/assets/banner.webp)
 
 StreamVerse offers an immersive viewing experience with features like watch lists, user ratings, and community forums, fostering a connected and interactive community of viewers. By prioritizing user engagement and content variety, StreamVerse aims to be at the forefront of digital entertainment, accessible anytime, anywhere.
 
