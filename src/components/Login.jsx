@@ -1,11 +1,12 @@
-import Header from "./Header";
 import banner from "/assets/banner.webp";
 import { useState, useRef } from "react";
 import { validate } from "../utils/validate";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const navigate = useNavigate();
   const email = useRef();
   const password = useRef();
   const fullName = useRef();
@@ -16,7 +17,7 @@ function Login() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        fullName: fullname,
+        fullname: fullname,
         email: email,
         password: password,
       }),
@@ -35,7 +36,8 @@ function Login() {
       }),
     });
     const token = await auth.json();
-    return token;
+    localStorage.setItem("auth", token.token);
+    navigate("/brouse");
   }
   async function submitForm() {
     const curentName = isSignIn ? "" : fullName.current.value;
@@ -61,9 +63,9 @@ function Login() {
 
   return (
     <div>
-      <div>
+      {/* <div>
         <Header />
-      </div>
+      </div> */}
       <img className="absolute" src={banner} alt="body" />
 
       <form
