@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "./Login";
-import Brouse from "./Brouse";
+import Brouwe from "./Browse";
 import { RouterProvider } from "react-router-dom";
+import ProtectedRoute from "./ProtecteedRoute";
 
 function Body() {
   const apRouter = createBrowserRouter([
@@ -10,8 +11,12 @@ function Body() {
       element: <Login />,
     },
     {
-      path: "/brouse",
-      element: <Brouse />,
+      path: "/browse",
+      element: (
+        <ProtectedRoute>
+          <Browse />
+        </ProtectedRoute>
+      ),
     },
   ]);
   return (

@@ -1,6 +1,6 @@
 import Header from "./Header";
 import banner from "/assets/banner.webp";
-function Brouse() {
+function Browse() {
   return (
     <div>
       <Header />
@@ -12,4 +12,4 @@ function Brouse() {
   );
 }
 
-export default Brouse;
+export default Browse;
