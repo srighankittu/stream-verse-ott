@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "./Login";
-import Brouwe from "./Browse";
+import Browse from "./Browse";
 import { RouterProvider } from "react-router-dom";
 import ProtectedRoute from "./ProtecteedRoute";
 
