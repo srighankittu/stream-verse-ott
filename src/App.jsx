@@ -1,11 +1,13 @@
 import "./App.css";
 import Body from "./components/Body";
+import { Provider } from "react-redux";
+import movieStore from "./utils/Redux/movieStore";
 
 function App() {
   return (
-    <div className="">
+    <Provider store={movieStore}>
       <Body />
-    </div>
+    </Provider>
   );
 }
 

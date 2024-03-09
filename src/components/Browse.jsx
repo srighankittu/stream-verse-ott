@@ -1,8 +1,11 @@
 import Header from "./Header";
 import banner from "/assets/banner.webp";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addLatestMovies } from "../utils/Redux/Slices/movieSlice";
 
 function Browse() {
+  const dispatch = useDispatch();
   async function fetchLatestMovies() {
     const movies = await fetch("http://localhost:3000/user/latestMovies", {
       method: "GET",
@@ -13,6 +16,7 @@ function Browse() {
     });
     const json = await movies.json();
     console.log(json);
+    dispatch(addLatestMovies(json.results));
   }
   useEffect(() => {
     fetchLatestMovies();
