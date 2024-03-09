@@ -4,6 +4,8 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
 import config from "../config.js";
+import userMiddleware from "../middleware/userMiddleware.js";
+import fetch from "node-fetch";
 
 dotenv.config();
 const router = Router();
@@ -45,6 +47,27 @@ router.post("/signin", async (req, res) => {
     }
   } catch (error) {
     res.status(500).send("An error occurred during signin.");
+  }
+});
+
+router.get("/latestMovies", userMiddleware, async (req, res) => {
+  // const { email, password } = req.body;
+  try {
+    const url =
+      "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYjNmZjNkMTZhOGRiYjZmNGY3ZDM1ZTcxMGU4Mzc4NSIsInN1YiI6IjY1ODdkMDBlNDc3MjE1NTk4MzQzY2RiYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XycOjjp8_-CS2cJInsg7tHOt2G3K-HAoo9S5r5cfmZU",
+      },
+    };
+    const latestMovies = await fetch(url, options);
+    const json = await latestMovies.json();
+    res.send(json);
+  } catch (error) {
+    res.status(500).send("Error while fetching movies");
   }
 });
 
