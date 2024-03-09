@@ -1,6 +1,22 @@
 import Header from "./Header";
 import banner from "/assets/banner.webp";
+import { useEffect } from "react";
+
 function Browse() {
+  async function fetchLatestMovies() {
+    const movies = await fetch("http://localhost:3000/user/latestMovies", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("auth"),
+        "Content-Type": "application/json",
+      },
+    });
+    const json = await movies.json();
+    console.log(json);
+  }
+  useEffect(() => {
+    fetchLatestMovies();
+  }, []);
   return (
     <div>
       <Header />

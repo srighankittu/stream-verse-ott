@@ -4,7 +4,7 @@ import { useEffect } from "react";
 function ProtectedRoute({ children }) {
   const isAuthenticated = () => {
     const token = localStorage.getItem("auth");
-    console.log(token);
+    // console.log(token);
     return !!token;
   };
 
