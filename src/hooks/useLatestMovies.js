@@ -13,7 +13,7 @@ const useLatestMovies = () => {
       },
     });
     const json = await movies.json();
-    console.log(json);
+    // console.log(json);
     dispatch(addLatestMovies(json.results));
   }
   useEffect(() => {
