@@ -37,7 +37,12 @@ function Login() {
     });
     const token = await auth.json();
     localStorage.setItem("auth", token.token);
-    navigate("/browse");
+    // console.log(token);
+    if (token) {
+      navigate("/browse");
+    } else {
+      navigate("/");
+    }
   }
   async function submitForm() {
     const curentName = isSignIn ? "" : fullName.current.value;
