@@ -13,7 +13,7 @@ function Header() {
       </div>
       <button
         onClick={SignOut}
-        className="w-[100px] border border-solid border-gray-600 bg-black rounded-lg text-white"
+        className="w-[100px] border border-solid border-gray-600 bg-black rounded-lg text-white bg-opacity-50"
       >
         Sign out
       </button>
