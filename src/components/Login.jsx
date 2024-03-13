@@ -115,7 +115,7 @@ function Login() {
           onClick={() => setIsSignIn(!isSignIn)}
         >
           {isSignIn
-            ? "New to Netflix? Sign Up Now!"
+            ? "New to Stream-verse? Sign Up Now!"
             : "Already a user? Sign in Now!"}
         </p>
       </form>
