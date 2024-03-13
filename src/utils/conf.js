@@ -6,3 +6,4 @@ export const SIGN_IN =
   "https://stream-verse-ott-backend-production.up.railway.app/user/signin";
 export const SIGN_UP =
   "https://stream-verse-ott-backend-production.up.railway.app/user/signup";
+export const IMAGE_URL = "https://image.tmdb.org/t/p/w300/";
