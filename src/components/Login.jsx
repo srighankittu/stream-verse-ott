@@ -2,6 +2,7 @@ import banner from "/assets/banner.webp";
 import { useState, useRef } from "react";
 import { validate } from "../utils/validate";
 import { useNavigate } from "react-router-dom";
+import { SIGN_IN, SIGN_UP } from "../utils/conf";
 
 function Login() {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -11,7 +12,7 @@ function Login() {
   const password = useRef();
   const fullName = useRef();
   async function SignUp(fullname, email, password) {
-    await fetch("http://localhost:3000/user/signup", {
+    await fetch(SIGN_UP, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +26,7 @@ function Login() {
   }
 
   async function SignIn(email, password) {
-    const auth = await fetch("http://localhost:3000/user/signin", {
+    const auth = await fetch(SIGN_IN, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

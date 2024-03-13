@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addTrilerVideo } from "../utils/Redux/Slices/movieSlice";
+import { VIDEO_DATA } from "../utils/conf";
 const useMovieTrailer = (id) => {
   const dispatch = useDispatch();
   async function fetchVideoData() {
-    const data = await fetch("http://localhost:3000/user/video/" + id, {
+    const data = await fetch(VIDEO_DATA + id, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("auth"),
